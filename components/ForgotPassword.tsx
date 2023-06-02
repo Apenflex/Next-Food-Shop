@@ -164,4 +164,5 @@ const ForgotPassword = () => {
     )
 }
 
-export default SectionWrapper(ForgotPassword, '')
+// export default SectionWrapper(ForgotPassword, '')
+export default ForgotPassword

@@ -1,10 +1,10 @@
 export const navLinks = [
     {
         link: '/',
-        title: 'home',
+        title: 'Shop',
     },
     {
-        id: 'about',
-        title: 'about',
+        id: '/shopcart',
+        title: 'Shopping Cart',
     },
 ]

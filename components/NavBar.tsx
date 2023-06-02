@@ -8,8 +8,8 @@ import { styles } from '@/components/styles'
 import { navLinks } from '@/lib/constants'
 
 const NavBar = ({ user }) => {
-    console.log('render navbar')
-    console.log(user)
+    // console.log('render navbar')
+    // console.log(user)
     const [active, setActive] = useState('')
     const [toggle, setToggle] = useState(false)
     const [isUser, setIsUser] = useState('')
@@ -19,7 +19,7 @@ const NavBar = ({ user }) => {
     }, [user])
 
     return (
-        <nav className={`${styles.paddingX} w-full flex items-center justify-between py-5 fixed top-0 z-20`}>
+        <nav className={`${styles.paddingX} w-full flex items-center justify-between py-5`}>
             <div className="w-full flex justify-between items-center max-w-4xl">
                 <ul className="list-none hidden sm:flex flex-row gap-10">
                     {navLinks.map((nav) => (
@@ -28,7 +28,7 @@ const NavBar = ({ user }) => {
                             className={`${active === nav.title ? 'text-white' : 'text-secondary'} hover:text-white text-[18px] font-medium cursor-pointer`}
                             onClick={() => setActive(nav.title)}
                         >
-                            {nav.id ? <a href={`#${nav.id}`}>{nav.title}</a> : <Link href={nav.link!}>{nav.title}</Link>}
+                            {nav.id ? <Link href={`${nav.id}`}>{nav.title}</Link> : <Link href={nav.link!}>{nav.title}</Link>}
                         </li>
                     ))}
                 </ul>
@@ -46,7 +46,7 @@ const NavBar = ({ user }) => {
                                         setActive(nav.title)
                                     }}
                                 >
-                                    {nav.id ? <a href={`#${nav.id}`}>{nav.title}</a> : <Link href={nav.link!}>{nav.title}</Link>}
+                                    {nav.id ? <Link href={`${nav.id}`}>{nav.title}</Link> : <Link href={nav.link!}>{nav.title}</Link>}
                                 </li>
                             ))}
                         </ul>
@@ -54,9 +54,9 @@ const NavBar = ({ user }) => {
                 </div>
             </div>
 
-            <div className="flex">
+            <div className="flex w-full justify-end">
                 {isUser ? <h2 className="text-sm flex items-center pr-1">Welcome {isUser}</h2> : null}
-                <Link href={isUser ? '/logout' : '/sign-in'} className="text-sm bg-teal-600 py-1 px-2 rounded-md hover:bg-teal-700">
+                <Link href={isUser ? '/logout' : '/sign-in'} className="text-white text-sm bg-teal-600 py-1 px-2 rounded-md hover:bg-teal-700 shadow-md shadow-neutral-700 active:shadow-lg">
                     {isUser ? 'Logout' : 'Sign In/Sign Up'}
                 </Link>
             </div>

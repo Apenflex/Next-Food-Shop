@@ -162,4 +162,5 @@ const SignUp = () => {
     )
 }
 
-export default SectionWrapper(SignUp, '')
+// export default SectionWrapper(SignUp, '')
+export default SignUp

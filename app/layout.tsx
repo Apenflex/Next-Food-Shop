@@ -20,14 +20,14 @@ const getData = async () => {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const user = await getData()
-    console.log('render layout')
+    // console.log('render layout')
     return (
         <html lang="en">
-            <body>
+            <body className="bg-neutral-400 max-h-screen">
                 <header>
                     <NavBar user={user?.name} />
                 </header>
-                <main className="relative z-0 bg-primary">{children}</main>
+                <main className="container mx-auto">{children}</main>
             </body>
         </html>
     )
