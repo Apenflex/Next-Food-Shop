@@ -3,25 +3,25 @@ version: "3"
 services:
   postgres:
     image: postgres:15.0-alpine
-    container_name: postgres
+    container_name: postgresFood
     environment:
       - POSTGRES_USER=dev_admin
       - POSTGRES_PASSWORD=dev_password
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=postgresFood
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgresFood:/var/lib/postgresql/data
     ports:
-      - 5433:5432
+      - 5430:5432
     networks:
       - postgres
 
   pgadmin:
-    container_name: pgadmin
+    container_name: pgadminFood
     image: dpage/pgadmin4
     ports:
-      - "8080:80"
+      - "8081:80"
     volumes:
-      - postgres:/root/.pgadmin
+      - postgresFood:/root/.pgadmin
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=admin
@@ -29,7 +29,7 @@ services:
       - postgres
 
 volumes:
-  postgres:
+  postgresFood:
 
 networks:
   postgres:
