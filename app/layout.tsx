@@ -7,9 +7,11 @@ import { NavBar } from '@/components'
 import { delay } from '@/lib/async'
 import { getUserFromCookie } from '@/lib/auth'
 
+import QueryWrapper from './QueryWrapper'
+
 export const metadata = {
-    title: 'Checklisty',
-    description: 'Checklisty is a checklist app for your daily tasks.',
+    title: 'Burger Shop',
+    description: 'Burger Shop is a demo app built with Next.js and Tailwind CSS.',
 }
 
 const getData = async () => {
@@ -24,10 +26,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     return (
         <html lang="en">
             <body className="bg-neutral-400 max-h-screen">
-                <header>
-                    <NavBar user={user?.name} />
-                </header>
-                <main className="container mx-auto">{children}</main>
+                <QueryWrapper>
+                    <header>
+                        <NavBar user={user?.name} />
+                    </header>
+                    <main className="container mx-auto">{children}</main>
+                </QueryWrapper>
             </body>
         </html>
     )

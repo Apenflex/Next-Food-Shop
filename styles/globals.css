@@ -13,8 +13,11 @@
     /* color-scheme: dark; */
 }
 .btnShops {
-    @apply py-4 px-4 rounded-md w-52 bg-teal-600 text-white text-center hover:bg-teal-700 active:bg-teal-800 active:shadow-lg transition-colors shadow-md shadow-neutral-700;
+    @apply py-4 px-4 rounded-md w-52 text-white text-center hover:bg-teal-700 active:bg-teal-800 active:shadow-lg transition-colors shadow-md shadow-neutral-700;
 }
 .btnAddToCart {
     @apply py-2 px-4 rounded-md bg-teal-600 text-white text-center hover:bg-teal-700 active:bg-teal-800 transition-colors shadow-md shadow-neutral-700 active:shadow-lg;
+}
+.allShops {
+    @apply bg-red-400 px-2 rounded-md hover:bg-red-500 active:bg-red-600 shadow-neutral-700 shadow-md active:shadow-lg;
 }

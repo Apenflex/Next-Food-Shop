@@ -8,7 +8,7 @@ import { useCallback, useState } from 'react'
 import { Slide, toast, ToastContainer } from 'react-toastify'
 
 import { signin } from '../lib/api'
-import SectionWrapper from './hoc/SectionWrapper'
+// import SectionWrapper from './hoc/SectionWrapper'
 
 
 const SignIn = () => {
