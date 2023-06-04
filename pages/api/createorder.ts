@@ -6,13 +6,10 @@ export default async function createOrderHandler(req: NextApiRequest, res: NextA
     if (req.method === 'POST') {
         try {
             const { formData, cartProducts, totalPrice } = req.body
-
-            // Обчислення загальної суми
-            // const totalPrice = cartProducts.reduce((total, cartProduct) => {
-            //     return total + cartProduct.price * cartProduct.quantity
-            // }, 0)
-
-            // Збереження даних з форми та корзини у базі даних
+            
+            /**
+             * Save data from form into cart in db
+             */
             const createdOrder = await prisma.order.create({
                 data: {
                     name: formData.name,

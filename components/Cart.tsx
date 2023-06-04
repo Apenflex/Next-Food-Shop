@@ -234,7 +234,6 @@ const Cart: React.FC<{ formData: FormData }> = ({ formData }) => {
                             or{' '}
                             <Link href={'/'} className="font-medium text-teal-600 hover:text-teal-500">
                                 Continue Shopping
-                                {/* <span aria-hidden="true"> &rarr;</span> */}
                             </Link>
                         </p>
                     </div>

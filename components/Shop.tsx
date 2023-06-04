@@ -103,7 +103,7 @@ const Shop = () => {
                     theme="dark"
                 />
                 <div className="grid grid-cols-2 gap-4">
-                    {filteredProducts?.map((product: Product) => (
+                    {filteredProducts?.map((product: Product) => ( //<Product {...props} />
                         <div key={product.id} className="flex flex-col p-3 border-2 border-neutral-500 rounded-lg shadow-md shadow-neutral-700">
                             <Image src={product.image} width={500} height={200} alt="some tasty good" className="w-[100%] h-[200px] object-cover rounded-sm" />
                             <div className="flex justify-between py-2">

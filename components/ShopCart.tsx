@@ -1,7 +1,7 @@
 'use client'
-import { useCallback, useState } from "react"
+import { useCallback, useState } from 'react'
 
-import Cart from "./Cart"
+import Cart from './Cart'
 
 interface FormData {
     name: string
@@ -17,7 +17,7 @@ const ShopCart = () => {
         phone: '',
         address: '',
     })
-    // console.log(formData);
+
     const handleInputChange = useCallback(
         (e) => {
             const { name, value } = e.target
@@ -30,7 +30,6 @@ const ShopCart = () => {
     )
 
     return (
-        
         <div className="flex w-full gap-2 h-[550px] max-h-[550px]">
             <div className="flex flex-col items-center justify-center w-1/2 h-full p-16 border-2 border-neutral-500 rounded-lg shadow-md shadow-neutral-700">
                 <div className="flex flex-col items-center space-y-4 gap-6 w-full">
@@ -97,8 +96,7 @@ const ShopCart = () => {
                 </div>
             </div>
             <Cart formData={formData} />
-            </div>
-       
+        </div>
     )
 }
 export default ShopCart
