@@ -46,6 +46,7 @@ const Cart: React.FC<{ formData: FormData }> = ({ formData }) => {
 
     useEffect(() => {
         validateForm()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formData])
 
     const validateForm = () => {
