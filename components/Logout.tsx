@@ -10,7 +10,10 @@ const Logout = () => {
         const handleLogout = async () => {
             await logout()
             router.push('/')
-            window.location.replace('/')
+            if (typeof window === 'undefined') {
+                // @ts-ignore
+                window.location.replace('/')
+            }
         }
 
         handleLogout()
