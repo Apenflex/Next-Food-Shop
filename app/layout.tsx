@@ -1,4 +1,3 @@
-// 'use client'
 import '@/styles/globals.css'
 
 import { cookies } from 'next/headers'
