@@ -2,12 +2,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator erd {
-  provider = "prisma-erd-generator"
-  output   = "./ERD.svg"
-  theme    = "forest"
-}
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -20,7 +14,6 @@ model User {
   email     String   @unique
   password  String
   name      String?
-  // Products  Products[]
 }
 
 model Products {
@@ -31,9 +24,9 @@ model Products {
   price     Float
   image     String
   shopId    String
-  shop      Shops    @relation(fields: [shopId], references: [id])
-  cart      Cart?    @relation(fields: [cartId], references: [id])
   cartId    String?
+  cart      Cart?    @relation(fields: [cartId], references: [id])
+  shop      Shops    @relation(fields: [shopId], references: [id])
 }
 
 model Shops {
@@ -49,10 +42,10 @@ model Cart {
   id        String     @id @default(uuid())
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+  quantity  Int
+  image     String
   name      String
   price     Float
-  image     String
-  quantity  Int
   products  Products[]
 }
 
