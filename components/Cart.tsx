@@ -8,16 +8,36 @@ import { Slide, toast, ToastContainer } from 'react-toastify'
 
 import CartSkeleton from './skeletons/CartSkeleton'
 
-const ProductsToCart = async () => {
-    console.log('render Cart');
+type Product = {
+    id: string
+    name: string
+    price: number
+    quantity: number
+    image: string
+}
+
+const ProductsToCart = async (): Promise<Product[]> => {
+    console.log('render Cart')
     const response = await axios.get('/api/gettocart')
     return response.data
 }
 
-const Cart = ({ formData }) => {
-    console.log(formData);
-    const [cartProducts, setCartProducts] = useState([])
-    const [errors, setErrors] = useState({
+type FormData = {
+    name: string
+    email: string
+    phone: string
+    address: string
+}
+
+const Cart: React.FC<{ formData: FormData }> = ({ formData }) => {
+    console.log(formData)
+    const [cartProducts, setCartProducts] = useState<Product[]>([])
+    const [errors, setErrors] = useState<{
+        name: string
+        email: string
+        phone: string
+        address: string
+    }>({
         name: '',
         email: '',
         phone: '',
@@ -55,7 +75,7 @@ const Cart = ({ formData }) => {
         setErrors(newErrors)
     }
 
-    const ProductsToCartQuery = useQuery({
+    const ProductsToCartQuery = useQuery<Product[]>({
         queryFn: ProductsToCart,
         queryKey: ['products'],
     })
@@ -70,10 +90,10 @@ const Cart = ({ formData }) => {
     }, [cartProducts])
 
     useEffect(() => {
-        setCartProducts(fetchedProducts)
+        setCartProducts(fetchedProducts || [])
     }, [fetchedProducts])
 
-    const handleCountChange = useCallback(async (product, count) => {
+    const handleCountChange = useCallback(async (product: Product, count: number) => {
         try {
             await axios.put('/api/updatecart', { cartItemId: product.id, quantity: count })
             setCartProducts((prev) => prev.map((item) => (item.id === product.id ? { ...item, quantity: count } : item)))
@@ -83,7 +103,7 @@ const Cart = ({ formData }) => {
         }
     }, [])
 
-    const handleRemoveFromCart = useCallback(async (product) => {
+    const handleRemoveFromCart = useCallback(async (product: Product) => {
         try {
             await axios.delete(`/api/removefromcart?cartItemId=${product.id}`)
             setCartProducts((prev) => prev.filter((item) => item.id !== product.id))
@@ -125,7 +145,7 @@ const Cart = ({ formData }) => {
         }
     }
 
-    if (error) return <div>{error.message}</div>
+    if (error) return <div>Error</div>
     if (isLoading) return <CartSkeleton />
 
     return (
