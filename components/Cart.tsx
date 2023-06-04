@@ -185,7 +185,7 @@ const Cart: React.FC<{ formData: FormData }> = ({ formData }) => {
                                             <div>
                                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                                     <h3>{product.name}</h3>
-                                                    <p className="ml-4">${product.price * product.quantity}.00</p>
+                                                    <p className="ml-4">${product.price * product.quantity}</p>
                                                 </div>
                                             </div>
                                             <div className="flex flex-1 items-end justify-between text-sm">
