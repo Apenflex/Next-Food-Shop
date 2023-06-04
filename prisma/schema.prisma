@@ -55,3 +55,27 @@ model Cart {
   quantity  Int
   products  Products[]
 }
+
+model Order {
+  id         String      @id @default(uuid())
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  name       String
+  email      String
+  phone      String
+  address    String
+  totalPrice Float
+  orderItems OrderItem[]
+}
+
+model OrderItem {
+  id           String   @id @default(uuid())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  orderId      String
+  productId    String
+  productName  String
+  quantity     Int
+  productPrice Float
+  order        Order    @relation(fields: [orderId], references: [id])
+}

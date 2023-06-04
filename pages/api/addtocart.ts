@@ -3,20 +3,21 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/prisma/client'
 
 export default async function addToCartHandler(req: NextApiRequest, res: NextApiResponse) {
+
     if (req.method === 'POST') {
         try {
             const { productId, quantity, name, price, image } = req.body
-
+            
             const product = await prisma.products.findFirst({
                 where: {
                     id: productId,
                 },
             })
-
+            
             if (!product) {
                 throw new Error('Product not found')
             }
-
+            
             const existingCartItem = await prisma.cart.findFirst({
                 where: {
                     products: {
@@ -26,7 +27,7 @@ export default async function addToCartHandler(req: NextApiRequest, res: NextApi
                     },
                 },
             })
-
+            
             if (existingCartItem) {
                 const updatedCartItem = await prisma.cart.update({
                     where: {

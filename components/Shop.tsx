@@ -95,7 +95,7 @@ const Shop = () => {
                             <Image src={product.image} width={500} height={200} alt="some tasty good" className="w-[100%] h-[200px] object-cover rounded-sm" />
                             <div className="flex justify-between py-2">
                                 <span className="text-left">{product.name}</span>
-                                <span className="text-right">{product.price} Є</span>
+                                <span className="text-right">{product.price} $</span>
                             </div>
                             <div className="flex justify-end">
                                 <button className="btnAddToCart" onClick={() => handleAddToCart(product)}>
