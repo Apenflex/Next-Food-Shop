@@ -7,16 +7,18 @@ import { close, menu } from '@/assets'
 import { styles } from '@/components/styles'
 import { navLinks } from '@/lib/constants'
 
-const NavBar = ({ user }) => {
+const NavBar = (
+    // { user }
+) => {
     // console.log('render navbar')
     // console.log(user)
     const [active, setActive] = useState('')
     const [toggle, setToggle] = useState(false)
     const [isUser, setIsUser] = useState('')
 
-    useEffect(() => {
-        user ? setIsUser(user) : setIsUser('')
-    }, [user])
+    // useEffect(() => {
+    //     user ? setIsUser(user) : setIsUser('')
+    // }, [user])
 
     return (
         <nav className={`${styles.paddingX} w-full flex items-center justify-between py-5`}>
@@ -54,12 +56,12 @@ const NavBar = ({ user }) => {
                 </div>
             </div>
 
-            <div className="flex w-full justify-end">
+            {/* <div className="flex w-full justify-end">
                 {isUser ? <h2 className="text-sm flex items-center pr-1">Welcome {isUser}</h2> : null}
                 <Link href={isUser ? '/logout' : '/sign-in'} className="text-white text-sm bg-teal-600 py-1 px-2 rounded-md hover:bg-teal-700 shadow-md shadow-neutral-700 active:shadow-lg">
                     {isUser ? 'Logout' : 'Sign In/Sign Up'}
                 </Link>
-            </div>
+            </div> */}
         </nav>
     )
 }

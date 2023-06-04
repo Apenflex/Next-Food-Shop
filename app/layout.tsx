@@ -29,7 +29,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     <QueryWrapper>
                         <header>
                             <NavBar
-                                user={user?.name}
+                                // user={user?.name}
                             />
                         </header>
                         <main className="container mx-auto">{children}</main>
