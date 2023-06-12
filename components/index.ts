@@ -1,10 +1,10 @@
 // "use client"
-import ForgotPassword from './ForgotPassword'
-// import SectionWrapper from './hoc/SectionWrapper'
+import ForgotPassword from './authComponents/ForgotPassword'
+import SignIn from './authComponents/SignIn'
+import SignUp from './authComponents/SignUp'
+import SectionWrapper from './hoc/SectionWrapper'
 import NavBar from './NavBar'
 import Shop from './Shop'
 import ShopCart from './ShopCart'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
 
-export { NavBar, Shop, ShopCart, SignIn, SignUp, ForgotPassword }
+export { NavBar, Shop, ShopCart, SignIn, SignUp, ForgotPassword, SectionWrapper }

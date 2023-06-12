@@ -1,10 +1,5 @@
-import { SignIn } from '@/components'
-// import SignIn from '../../../components/SignIn'
+import WrappedSignIn from '@/components/authComponents/SignIn'
 
 export default function Home() {
-    return (
-        <>
-            <SignIn />
-        </>
-    )
+    return <WrappedSignIn />
 }

@@ -1,9 +1,5 @@
-import { ForgotPassword } from '@/components'
+import WrappedForgotPassword from '@/components/authComponents/ForgotPassword'
 
 export default function Home() {
-    return (
-        <>
-            <ForgotPassword />
-        </>
-    )
+    return <WrappedForgotPassword />
 }

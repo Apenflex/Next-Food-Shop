@@ -27,6 +27,7 @@
     "cookie": "^0.5.0",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "framer-motion": "^10.12.16",
     "install": "^0.13.0",
     "jose": "^4.14.1",
     "next": "13.3.0",
